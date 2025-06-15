@@ -9,11 +9,13 @@
 
     - [ ]  [Bing](https://www.bing.com/?setlang=es)
     - [ ]  [Duckduckgo](https://duckduckgo.com)
+    - [ ]  [Fofa](https://en.fofa.info/)
 
         site:target.com inurl:'&'
 
     - [ ]  [Censys](https://censys.io)
     - [ ]  [Shodan](https://www.shodan.io)
+    - [ ]  [SecurityTrails](https://securitytrails.com/)
 
         Usar los filtros
 
@@ -26,14 +28,12 @@
         ./gitgot.py -q "org:github cats"
 
         - [Gitrob](https://github.com/michenriksen/gitrob)
-        - [https://shhgit.darkport.co.uk](https://shhgit.darkport.co.uk/)
     - [ ]  [Gitlab](https://gitlab.com/)
     - [ ]  [Pastebin](https://pastebin.com)
-        - [PasteLert](https://andrewmohawk.com/pasteLert/)
-    - [ ]  [Trello](https://trello.com)
+    - [ ]  [Trello](https://postman.com)
 
-        Ejemplo de un dork para Google: inurl:[https://trello.com](https://trello.com/) AND intext:target.com
-        site:trello.com target.com
+        Ejemplo de un dork para Google: inurl:postman.com AND intext:target.com
+        site:postman.com target.com
 
     - [ ]  [Linkedin](https://www.linkedin.com/uas/login?_l=es)
 
@@ -62,20 +62,12 @@
     for i in $(cat nombre_archivo_dominios.txt); do echo""; echo "ASN $i";echo ""; amass intel -active -asn $i;echo ""; done
 
 - [ ]  Buscar subdominios
+    - [Subfinder](https://github.com/projectdiscovery/subfinder)    
     - [Findomain](https://github.com/Edu4rdSHL/findomain)
     - [Sublist3r](https://github.com/aboul3la/Sublist3r)
-
-        python3 [sublister.py](http://sublister.py) -d target.com
-
-    - [Acamar](https://github.com/si9int/Acamar)
-
-        python3 acamar.py [t](http://twitter.com/)arget.com
-
     - [Assetfinder](https://github.com/tomnomnom/assetfinder)
 
         assetfinder --subs-only [dominio.com](http://dominio.com/) | httprobe -t 40000 | tee -a salida.txt
-
-        -t  Timeout en milisegundos (40000 es el doble del default)
 
     - [Amass](https://github.com/OWASP/Amass)
 
@@ -86,7 +78,6 @@
 
         altdns -i subdominios.txt -o salida.txt -w wordlist.txt -r -s salida_final.txt
 
-    - [http://arthusu.xyz/subdomainScanner/](http://arthusu.xyz/subdomainScanner/)
     - [ ]  Subdomain Takeover
         - [Subjack](https://github.com/haccer/subjack)
         - [Subzy](https://github.com/LukaSikic/subzy)
@@ -96,18 +87,17 @@
 
 - [ ]  Screenshot de Webs
     - [Aquatone](https://github.com/michenriksen/aquatone)
+    - [HTTPX](https://github.com/projectdiscovery/httpx)
 
         Ejemplo:
         cat hosts.txt | aquatone -ports (xlarge, small, medium, large, xlarge) -out ~/path/output  -scan-timeout 500 -screenshot-timeout 50000 -http-timeout 6000
-
     - [Gowitness](https://github.com/sensepost/gowitness)
+      
 - [ ]  Buscar directorios
     - [Dirsearch](https://github.com/maurosoria/dirsearch)
 
     Ejemplo:
     python3 [dirsearch.py](http://dirsearch.py/) -u target.com -E -w ./directory-list-lowercase-2.3-medium.txt -f -t 20 --plain-text-report=/tmp/salida.txt
-
-    - [Gobuster](https://tools.kali.org/web-applications/gobuster)
     - [ffuf](https://github.com/ffuf/ffuf)
 
     El secreto es armarse un diccionario propio, personalizado! pero se pueden usar por ejemplo los siguientes: [all.txt](https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a) [dirbuster wordlists](https://github.com/daviddias/node-dirbuster/tree/master/lists) [SecLists](https://github.com/danielmiessler/SecLists)
@@ -157,12 +147,7 @@
         -vvv Verbosity
         -p-65535 (todos los puertos)
 
-    - [HTTProbe](https://github.com/tomnomnom/httprobe)
-
-        Ejemplo:
-        cat archivo.txt | ./httprobe -p http:81 -p https:8443 -p http:8000 -p http:8001 -p http:8080 -p http:8181 -t 40000 
-
-        -t  Timeout en milisegundos (40000 es el doble del default)
+    - [HTTPX](https://github.com/projectdiscovery/httpx)
 
     - [Nikto](https://github.com/sullo/nikto)
 
@@ -182,20 +167,17 @@
 - [ ]  Mapear la arquitectura de la Aplicación (Identify application architecture including Web language, WAF, Reverse proxy, Application Server, Backend Database)
 - [ ]  Robots.txt y revisar el código fuente HTML
 - [ ]  Web Crawler
+    - [Katana](https://github.com/projectdiscovery/katana)
     - Crawl burp (ex spider)
     - [Hakrawler](https://github.com/hakluke/hakrawler)
 
-    Ejemplo:
-    ./assetfinder target.com | hakrawler
 
-    ./hakrawler -url target.com -depth 1
-
-    - [http://arthusu.xyz/crawler/index.php?menu=crawler](http://arthusu.xyz/crawler/index.php?menu=crawler)
 - [ ]  Waybackmachine
     - [Waybackurls](https://github.com/tomnomnom/waybackurls)
     - [WaybackurlSqliScanner](https://github.com/ghostlulzhacks/waybackSqliScanner)
     - [http://arthusu.xyz/crawler/index.php?menu=urls](http://arthusu.xyz/crawler/index.php?menu=urls)
 - [ ]  GetAllUrls ([GAU](https://github.com/lc/gau))
+- [ ]  URLFinder ([URLFinder](https://github.com/projectdiscovery/urlfinder))
 
     Ejemplo:
     gau example.com
